@@ -4,7 +4,7 @@ class Solution {
         findcomb(0,candidates,target,ans,new ArrayList<>());
         return ans;
     }
-    private void findcomb(int ind, int[] arr, int target ,List<List<Integer>> ans, ArrayList<Integer> ds){
+    private void findcomb(int ind, int[] arr, int target ,List<List<Integer>> ans, List<Integer> ds){
         if(ind == arr.length){
             if(target == 0)
                 ans.add(new ArrayList<>(ds));
