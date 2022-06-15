@@ -19,8 +19,8 @@ class Solution {
                 j++;
             }
         }
-        int[] ret = new int[list.size()];
-        for(int k = 0; k < list.size();k++) ret[k] = list.get(k);
-        return ret;
+        int[] arr = new int[list.size()];
+        for(int k = 0; k < list.size();k++) arr[k] = list.get(k);
+        return arr;
     }
 }
