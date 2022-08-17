@@ -6,6 +6,7 @@ class Solution {
             s=s+n;
         }
        
+       
         return s;
     }
 }
