@@ -1,30 +1,19 @@
 class Solution {
-    int count=0;
     public int islandPerimeter(int[][] grid) {
-        count=0;
-        int n=grid.length, m=grid[0].length;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
+        int land=0,neighbour=0;
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[0].length;j++){
                 if(grid[i][j]==1){
-                    dfs(grid,i,j);
-                    break;
+                    land++;
+                    if(i<grid.length-1 && grid[i+1][j]==1){
+                        neighbour++;
+                    }
+                    if(j<grid[i].length-1 && grid[i][j+1]==1){
+                        neighbour++;
+                    }
                 }
             }
         }
-        return count;
-    }
-    public void dfs(int[][] grid,int i,int j){
-        if(i<0 || i>=grid.length || j<0 || j>=grid[0].length || grid[i][j]==0){
-            count++;
-            return;
-        }
-        if(grid[i][j]==-1){
-            return;
-        }
-        grid[i][j]=-1;
-        dfs(grid,i+1,j);
-        dfs(grid, i,j+1);
-        dfs(grid, i-1,j);
-        dfs(grid, i,j-1);
+        return land*4 - neighbour*2;
     }
 }
