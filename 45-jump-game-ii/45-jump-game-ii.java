@@ -7,14 +7,18 @@ class Solution {
         {
             pre[i] = Integer.MAX_VALUE;
         }
-        pre[0] = 0;
-        for(i=0;i<n;i++)
+        pre[n-1] = 0;
+        for(i=n-2;i>=0;i--)
         {
-            for(j=i;j<=i+nums[i] && j<n;j++)
+            int min=Integer.MAX_VALUE;
+            for(j=i+1;j<=Math.min(n-1,i+nums[i]);j++)
             {
-                pre[j] = Math.min(pre[j], pre[i]+1);
+                min = Math.min(min, pre[j]);
+            }
+            if(min!=Integer.MAX_VALUE){
+                pre[i]=min+1;
             }
         }
-        return pre[n-1]; 
+        return pre[0]; 
     }
 }
