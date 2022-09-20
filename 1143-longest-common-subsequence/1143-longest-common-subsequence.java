@@ -11,11 +11,11 @@ class Solution {
                 else{
                     dp[i][j]=Math.max(dp[i][j-1],dp[i-1][j]);
                 }
-                if(dp[i][j]>max){
-                    max=dp[i][j];
-                }
+                // if(dp[i][j]>max){
+                //     max=dp[i][j];
+                // }
             }
         }
-        return max;
+        return dp[dp.length-1][dp[0].length-1];
     }
 }
