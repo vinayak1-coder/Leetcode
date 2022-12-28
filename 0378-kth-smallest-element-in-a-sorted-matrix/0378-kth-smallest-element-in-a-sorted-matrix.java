@@ -1,6 +1,6 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-       int lo = matrix[0][0], hi = matrix[matrix.length - 1][matrix[0].length - 1] + 1;
+       int lo = matrix[0][0], hi = matrix[matrix.length - 1][matrix[0].length - 1];
         while(lo < hi) {
             int mid = lo + (hi - lo) / 2;
             int count = 0;  
