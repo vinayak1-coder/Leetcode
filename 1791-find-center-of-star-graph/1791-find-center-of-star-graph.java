@@ -1,18 +1,17 @@
+import java.util.HashSet;
+import java.util.Set;
 class Solution {
     public int findCenter(int[][] edges) {
-        int n=edges.length+1;
-        int[] count=new int[n+1];
+       Set<Integer> found=new HashSet<>();
         for(int[] edge : edges){
-            int x=edge[0];
-            int y=edge[1];
-            count[x]++;
-            count[y]++;
-            if(count[x]>1){
-                return x;
+            if(found.contains(edge[0])){
+                return edge[0];
             }
-            if(count[y]>1){
-                return y;
+            found.add(edge[0]);
+            if(found.contains(edge[1])){
+                return edge[1];
             }
+            found.add(edge[1]);
         }
         return 0;
     }
