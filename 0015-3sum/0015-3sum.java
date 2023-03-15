@@ -23,7 +23,7 @@ class Solution {
                 }
                 low++; high--;
                 }
-               else if(nums[low]+nums[high]+nums[i]>0){
+               else if(nums[low]+nums[high]>sum){
                     high--;
                 }
                 else{
