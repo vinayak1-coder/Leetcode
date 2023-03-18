@@ -14,14 +14,14 @@
  * }
  */
 class Solution {
-    List<Integer> ans= new ArrayList<>();
+    //List<Integer> ans= new ArrayList<>();
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
         List<Integer> list1=new ArrayList<>();
         List<Integer> list2=new ArrayList<>();
         inOrder(root1,list1);
         inOrder(root2,list2);
-        merge(list1,list2);
-        return ans;
+        return merge(list1,list2);
+        //return ans;
     }
     private void inOrder(TreeNode root, List<Integer> arr){
         if(root==null){
@@ -31,8 +31,8 @@ class Solution {
         arr.add(root.val);
         inOrder(root.right,arr);
     }
-    public void merge(List<Integer> list1 , List<Integer> list2){
-        //List<Integer> ans= new ArrayList<>();
+    public List<Integer> merge(List<Integer> list1 , List<Integer> list2){
+        List<Integer> ans= new ArrayList<>();
         int i = 0;
         int j = 0;
         while(i < list1.size() && j < list2.size()){
@@ -55,6 +55,7 @@ class Solution {
                 ans.add(list2.get(k));
             }
         }
+        return ans;
     }
     
 }
