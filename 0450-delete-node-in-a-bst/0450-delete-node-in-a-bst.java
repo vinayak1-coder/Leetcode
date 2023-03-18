@@ -25,14 +25,21 @@ class Solution {
         else {
             if(root.left == null) return root.right;
             if(root.right == null) return root.left;
-            int min = findmin(root.right);
-            root.val = min;
-            root.right = deleteNode(root.right, min);
+            // int min = findmin(root.right);
+            // root.val = min;
+            // root.right = deleteNode(root.right, min);
+            int max=findmax(root.left);
+            root.val=max;
+            root.left=deleteNode(root.left,max);
         }
         return root;
     }
     public int findmin(TreeNode root){
         while(root.left != null) root = root.left;
+        return root.val;
+    }
+    public int findmax(TreeNode root){
+        while(root.right != null) root=root.right;
         return root.val;
     }
 }
