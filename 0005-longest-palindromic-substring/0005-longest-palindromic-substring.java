@@ -11,7 +11,7 @@ class Solution {
             // if(maxR - minL + 1 == s.length()){
             //     return s;
             // }
-            if(i>0 && i+1 < s.length() && s.charAt(i-1)== s.charAt(i+1)){
+            if( i>0 && i+1 < s.length() && s.charAt(i-1)== s.charAt(i+1)){
                 int l = i -1;
                 int r = i + 1;
                 expand(s,l,r);
