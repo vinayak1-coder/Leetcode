@@ -1,7 +1,11 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
+        
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> list=new ArrayList<>();
+        if(nums.length<1){
+            return ans;
+        }
         per(nums,ans,list,new boolean[nums.length]);
         return ans;
     }
