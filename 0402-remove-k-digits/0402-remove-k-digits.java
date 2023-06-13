@@ -1,38 +1,28 @@
 class Solution {
-  public String removeKdigits(String num, int k) {
-        if (k == num.length()) {
-            return "0";
-        }
+    public String removeKdigits(String num, int k) {
+        int len = num.length();
+        if(k == 0)  return num;
+        if(k == len) return "0";
+        
         Stack<Character> stack = new Stack<>();
-        int i = 0;
-        while (i < num.length()) {
-            //check whether the current num is smaller than the top of the stack (means we have the peak)
-            while (k > 0 && !stack.isEmpty() && stack.peek() > num.charAt(i)) {
-                //eliminate the peak
+        int index = 0;
+        
+        while(index < len){
+            while(k > 0 && !stack.isEmpty() && stack.peek() > num.charAt(index)){
                 stack.pop();
                 k--;
             }
-            stack.push(num.charAt(i));
-            i++;
+            stack.push(num.charAt(index++));
         }
-        // handles the scenario where digits are equal, (1111, k=3)
-        while (k > 0 && !stack.isEmpty()) {
-            stack.pop();
-            k--;
-        }
-
-        StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty()) {
-            sb.append(stack.pop());
-        }
-        //as stack follows LIFO
-        sb.reverse();
+        while(k-- > 0) stack.pop();
         
-        //remove leading zeros
-        while (sb.toString().startsWith("0")) {
-            sb.deleteCharAt(0);
-
-        }
-        return sb.length() == 0 ? "0" : sb.toString();
+        String smallest = "";
+        while(!stack.isEmpty()) smallest = stack.pop() + smallest;
+        
+		// delete leading zeros
+        while(smallest.length() > 1 && smallest.charAt(0) == '0')
+            smallest = smallest.substring(1);
+        
+        return smallest;
     }
 }
