@@ -10,6 +10,6 @@ class Solution {
             }
         }
         res = Math.max(res, cnt + prevCnt);
-        return res == nums.length ? res - 1 : res;  //if all ones, must remove one;
+        return res == nums.length ? res - 1 : res;
     }
 }
